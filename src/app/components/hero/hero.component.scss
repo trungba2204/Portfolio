@@ -1,0 +1,152 @@
+.hero {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-xxl) 0;
+  
+  .hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
+    
+    .hero-badge {
+      font-family: var(--font-nunito);
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.36;
+      text-transform: uppercase;
+      color: var(--brand-yellow);
+      margin-bottom: var(--spacing-sm);
+      display: inline-block;
+    }
+    
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      
+      h1 {
+        font-family: var(--font-playfair);
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 1.2;
+        color: var(--font-high-emphasis);
+        margin: 0;
+      }
+      
+      .hero-description {
+        p {
+          font-family: var(--font-nunito);
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 1.5;
+          color: var(--font-medium-emphasis);
+          margin: 0;
+        }
+      }
+      
+      .hero-buttons {
+        display: flex;
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+      }
+    }
+  }
+  
+  .hero-decoration {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+    
+    svg {
+      width: 100%;
+      height: auto;
+      max-width: 720px;
+      animation: float 6s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero {
+    .hero-decoration {
+      opacity: 0.3;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-xl) 0;
+    
+    .hero-content {
+      max-width: 100%;
+      
+      .hero-text {
+        h1 {
+          font-size: 40px;
+        }
+        
+        .hero-description p {
+          font-size: 18px;
+        }
+      }
+    }
+    
+    .hero-decoration {
+      width: 80%;
+      opacity: 0.2;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    .hero-content {
+      .hero-badge {
+        font-size: 16px;
+      }
+      
+      .hero-text {
+        gap: var(--spacing-md);
+        
+        h1 {
+          font-size: 32px;
+        }
+        
+        .hero-description p {
+          font-size: 16px;
+        }
+        
+        .hero-buttons {
+          flex-direction: column;
+          
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,199 @@
+.contact {
+  background-color: var(--bg-white);
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+  
+  .contact-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 1;
+    
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .contact-form {
+    background-color: var(--bg-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    
+    .btn {
+      width: 100%;
+      margin-top: var(--spacing-md);
+      
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+    
+    .success-message,
+    .error-message {
+      margin-top: var(--spacing-md);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .info-card {
+      background-color: var(--bg-gray);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      
+      h3 {
+        font-family: var(--font-playfair);
+        font-weight: 700;
+        font-size: 32px;
+        color: var(--font-high-emphasis);
+        margin-bottom: var(--spacing-lg);
+      }
+      
+      .info-items {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        
+        .info-item {
+          display: flex;
+          gap: var(--spacing-md);
+          align-items: flex-start;
+          padding: var(--spacing-md);
+          background-color: var(--bg-white);
+          border-radius: var(--radius-md);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            
+            .info-icon {
+              color: var(--brand-yellow);
+              transform: scale(1.1);
+            }
+          }
+          
+          .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--font-high-emphasis);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+          }
+          
+          .info-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            
+            strong {
+              font-family: var(--font-nunito);
+              font-weight: 600;
+              font-size: 14px;
+              color: var(--font-medium-emphasis);
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            
+            a,
+            span {
+              font-family: var(--font-nunito);
+              font-size: 16px;
+              color: var(--font-high-emphasis);
+              text-decoration: none;
+              
+              &:hover {
+                color: var(--brand-yellow);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact {
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+    
+    .contact-form,
+    .contact-info .info-card {
+      padding: var(--spacing-lg);
+    }
+    
+    .contact-info .info-card {
+      h3 {
+        font-size: 24px;
+      }
+      
+      .info-items .info-item {
+        padding: var(--spacing-sm);
+        
+        .info-text {
+          a, span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    .contact-form,
+    .contact-info .info-card {
+      padding: var(--spacing-md);
+    }
+    
+    .contact-info .info-card h3 {
+      font-size: 20px;
+    }
+  }
+}
+

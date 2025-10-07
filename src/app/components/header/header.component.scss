@@ -1,0 +1,128 @@
+.header {
+  background-color: var(--bg-gray);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-family: var(--font-comfortaa);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--font-high-emphasis);
+    cursor: pointer;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 48px;
+    
+    .nav-link {
+      font-family: var(--font-raleway);
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.56;
+      color: var(--font-high-emphasis);
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: var(--brand-yellow);
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--brand-yellow);
+        transition: width 0.3s ease;
+      }
+      
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    
+    span {
+      width: 28px;
+      height: 3px;
+      background-color: var(--font-high-emphasis);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+      
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    .nav {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      background-color: var(--bg-white);
+      flex-direction: column;
+      padding: var(--spacing-lg);
+      gap: var(--spacing-md);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      
+      &.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .nav-link {
+        font-size: 20px;
+        padding: var(--spacing-sm) 0;
+      }
+    }
+    
+    .menu-toggle {
+      display: flex;
+    }
+  }
+}
+

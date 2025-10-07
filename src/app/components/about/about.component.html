@@ -1,0 +1,53 @@
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text slide-in-left">
+        <h2>Về tôi</h2>
+        
+        <p class="about-bio">{{ personalInfo.bio }}</p>
+        
+        <div class="about-info">
+          <div class="info-item">
+            <strong>Ngày sinh:</strong> {{ personalInfo.birthDate }}
+          </div>
+          <div class="info-item">
+            <strong>Địa chỉ:</strong> {{ personalInfo.address }}
+          </div>
+          <div class="info-item">
+            <strong>Email:</strong> 
+            <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
+          </div>
+          <div class="info-item">
+            <strong>Điện thoại:</strong> {{ personalInfo.phone }}
+          </div>
+        </div>
+        
+        <div class="about-education">
+          <h3>Học vấn</h3>
+          <div *ngFor="let edu of education" class="education-item">
+            <div class="edu-header">
+              <strong>{{ edu.school }}</strong>
+              <span class="edu-period">{{ edu.period }}</span>
+            </div>
+            <div class="edu-degree">{{ edu.degree }}</div>
+            <p class="edu-description">{{ edu.description }}</p>
+          </div>
+        </div>
+        
+        <a class="btn btn-primary" 
+           href="assets/cv/Nguyen-Minh-Quan-TopCV.vn-300925.140101.pdf" 
+           download="Nguyen-Minh-Quan-CV.pdf" 
+           style="color: inherit; text-decoration: none;">
+          Tải CV
+        </a>
+      </div>
+      
+      <div class="about-image slide-in-right">
+        <div class="image-wrapper">
+          <img src="assets/images/gif-globalinsurancefinance-9a8afa00-1a23-4e54-90f8-d5f1dbfd23a0.jpg" alt="{{ personalInfo.fullName }}" />
+          <div class="image-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

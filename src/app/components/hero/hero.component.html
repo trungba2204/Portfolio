@@ -1,0 +1,30 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content fade-in">
+      <div class="hero-badge">{{ personalInfo.position }}</div>
+      
+      <div class="hero-text">
+        <h1>Xin chào, tôi là {{ personalInfo.fullName }}</h1>
+        
+        <div class="hero-description">
+          <p>{{ personalInfo.bio }}</p>
+        </div>
+        
+        <div class="hero-buttons">
+          <button class="btn btn-primary" (click)="scrollToSection('projects')">
+            Projects
+          </button>
+          <button class="btn btn-secondary" (click)="openLink(personalInfo.facebook)">
+            Facebook
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hero-decoration">
+    <svg viewBox="0 0 720 629" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="388.5" cy="388.5" r="388.5" fill="#FDC435" opacity="0.3"/>
+    </svg>
+  </div>
+</section>

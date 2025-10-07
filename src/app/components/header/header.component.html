@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">{{ fullName }}</div>
+      
+      <nav class="nav" [class.active]="isMenuOpen">
+        <a class="nav-link" (click)="scrollToSection('about')">About</a>
+        <a class="nav-link" (click)="scrollToSection('projects')">Projects</a>
+        <a class="nav-link" (click)="scrollToSection('contact')">Contacts</a>
+      </nav>
+      
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
